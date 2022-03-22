@@ -2,7 +2,9 @@ import React from 'react'
 
 const ContactList = () => {
     return (
-        <div>ContactList</div>
+        <div className="ui celled list">
+            Contact List
+        </div>
     );
 }
 
