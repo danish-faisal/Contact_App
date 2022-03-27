@@ -19,14 +19,19 @@ function App() {
   }, [contacts]);
 
   const addContactHandler = (contact) => {
-    setContacts([...contacts, {id: uuidv4(), ...contact}]);
+    setContacts([...contacts, { id: uuidv4(), ...contact }]);
+  }
+
+  const removeContactHandler = (id) => {
+    const newContactList = contacts.filter((contact) => contact.id !== id);
+    setContacts(newContactList);
   }
 
   return (
     <div className="ui container">
       <Header />
       <AddContact addContactHandler={addContactHandler} />
-      <ContactList contacts={contacts} />
+      <ContactList contacts={contacts} getContactId={removeContactHandler} />
     </div>
   );
 }
