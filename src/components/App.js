@@ -12,6 +12,8 @@ import Header from './Header';
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
   const [contacts, setContacts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -58,11 +60,23 @@ function App() {
     setContacts(newContactList);
   }
 
+  const searchHandler = (searchText) => {
+    setSearchTerm(searchText);
+    if (searchText != "") {
+      const newContactsList = contacts.filter((contact) => {
+        return Object.values(contact).join(" ").toLowerCase().includes(searchText.toLowerCase());
+      });
+      setSearchResults(newContactsList);
+    } else {
+      setSearchResults(contacts);
+    }
+  }
+
   return (
     <div className="ui container">
       <Header />
       <Routes>
-        <Route exact path="/" element={<ContactList contacts={contacts} getContactId={removeContactHandler} />}> </Route>
+        <Route exact path="/" element={<ContactList contacts={searchTerm.length < 1 ? contacts : searchResults} getContactId={removeContactHandler} term={searchTerm} searchKeyword={searchHandler} />}> </Route>
         <Route path="/add" element={<AddContact addContactHandler={addContactHandler} navigate={navigate} />}> </Route>
         <Route path="/edit" element={<EditContact updateContactHandler={updateContactHandler} navigate={navigate} location={location} />}> </Route>
         <Route path="/contact/:id" element={<ContactDetail />}></Route>
