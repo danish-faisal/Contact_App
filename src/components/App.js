@@ -30,11 +30,16 @@ function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+    // localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
   }, [contacts]);
 
-  const addContactHandler = (contact) => {
-    setContacts([...contacts, { id: uuidv4(), ...contact }]);
+  const addContactHandler = async (contact) => {
+    const request = {
+      id: uuidv4(),
+      ...contact
+    };
+    const response = await api.post("/contacts", request);
+    setContacts([...contacts, response.data]);
   }
 
   const removeContactHandler = (id) => {
