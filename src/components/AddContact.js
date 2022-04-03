@@ -17,7 +17,7 @@ export default class AddContact extends Component {
 
         this.props.addContactHandler(this.state);
         this.setState({ name: "", email: "" });
-        this.props.navigate("/");
+        this.props.navigate("/Contact_App");
     }
 
     render() {

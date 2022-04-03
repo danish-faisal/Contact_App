@@ -21,7 +21,7 @@ export default class EditContact extends Component {
 
         this.props.updateContactHandler(this.state);
         this.setState({ id: "", name: "", email: "" });
-        this.props.navigate("/");
+        this.props.navigate("/Contact_App");
     }
 
     render() {
