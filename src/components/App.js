@@ -76,10 +76,10 @@ function App() {
     <div className="ui container">
       <Header />
       <Routes>
-        <Route exact path="/" element={<ContactList contacts={searchTerm.length < 1 ? contacts : searchResults} getContactId={removeContactHandler} term={searchTerm} searchKeyword={searchHandler} />}> </Route>
-        <Route path="/add" element={<AddContact addContactHandler={addContactHandler} navigate={navigate} />}> </Route>
-        <Route path="/edit" element={<EditContact updateContactHandler={updateContactHandler} navigate={navigate} location={location} />}> </Route>
-        <Route path="/contact/:id" element={<ContactDetail />}></Route>
+        <Route exact path="/Contact_App" element={<ContactList contacts={searchTerm.length < 1 ? contacts : searchResults} getContactId={removeContactHandler} term={searchTerm} searchKeyword={searchHandler} />}> </Route>
+        <Route path="/Contact_App/add" element={<AddContact addContactHandler={addContactHandler} navigate={navigate} />}> </Route>
+        <Route path="/Contact_App/edit" element={<EditContact updateContactHandler={updateContactHandler} navigate={navigate} location={location} />}> </Route>
+        <Route path="/Contact_App/contact/:id" element={<ContactDetail />}></Route>
       </Routes>
     </div>
   );
