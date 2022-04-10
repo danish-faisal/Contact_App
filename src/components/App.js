@@ -10,7 +10,7 @@ import EditContact from './EditContact';
 import Header from './Header';
 
 function App() {
-  const LOCAL_STORAGE_KEY = "contacts";
+  // const LOCAL_STORAGE_KEY = "contacts";
   const [contacts, setContacts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
