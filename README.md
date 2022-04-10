@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Project Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A contact manager application built using React, designed using Semantic-UI & JSON server backend
+
+Live: https://contact-app-with-jsonserver.netlify.app/
 
 ## Available Scripts
 
